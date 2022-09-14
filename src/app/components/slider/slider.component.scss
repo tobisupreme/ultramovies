@@ -1,0 +1,99 @@
+@import "../../../styles/colors";
+
+.slider {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 35rem;
+  color: #999999;
+  background-color: #000000;
+  position: relative;
+
+  .slide {
+    position: relative;
+    display: flex;
+    height: 35rem;
+
+    &-bg {
+      position: relative;
+      display: flex;
+      flex: 1 1 auto;
+
+      &::after {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: block;
+        content: "";
+        background: rgb(0, 0, 0);
+        background: linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 0.9934174353335085) 0%,
+          rgba(0, 0, 0, 0.7301121132046569) 42%,
+          rgba(255, 255, 255, 0) 100%
+        );
+      }
+
+      &-image {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &-info {
+      width: 45%;
+      position: absolute;
+      top: 5rem;
+      margin-left: 5rem;
+
+      .movie-name {
+        font-size: 2.8rem;
+      }
+
+      .meta {
+        display: flex;
+        flex-direction: column;
+        font-size: 1.4rem;
+        gap: 2rem;
+        color: $lightGray;
+
+        &-data {
+          display: flex;
+          align-items: center;
+          gap: 1.5rem;
+
+          > span {
+            &:not(:last-child):after {
+              content: "|";
+              margin-left: 2rem;
+            }
+          }
+
+          .rating {
+            display: flex;
+            align-items: center;
+
+            &-value {
+              display: inline-block;
+              margin-left: 0.5rem;
+              color: $white;
+            }
+
+            .star-rating {
+              color: #d4af37;
+              display: flex;
+              align-items: center;
+            }
+          }
+        }
+
+        &-description {
+          line-height: 2;
+        }
+      }
+    }
+  }
+}
