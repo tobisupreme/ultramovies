@@ -1,24 +1,21 @@
 <div class="slider">
-  <div class="slide">
+  <div class="slide" *ngFor="let item of items">
     <div class="slide-bg">
-      <img class="slide-bg-image" src="https://image.tmdb.org/t/p/original/2RSirqZG949GuRwN38MYCIGG4Od.jpg" alt="">
+      <img class="slide-bg-image" [src]="'https://image.tmdb.org/t/p/original/' + item.backdrop_path" alt="">
     </div>
     <div class="slide-info">
-      <h2 class="movie-name">Fall</h2>
+      <h2 class="movie-name">{{ item.title }}</h2>
       <div class="meta">
         <div class="meta-data">
           <span class="rating">
             <span class="app-icon star-rating">star</span>
-            <span class="rating-value">7.4</span>
+            <span class="rating-value">{{ item.vote_average }}</span>
             <span>/10</span>
           </span>
-          <span>507 Reviews</span>
-          <span>2022</span>
+          <span>{{ item.vote_count}} Reviews</span>
+          <span>{{ item.release_date | date: 'yyyy' }}</span>
         </div>
-        <div class="meta-description">For best friends Becky and Hunter, life is all about conquering fears and pushing
-          limits. But after they climb 2,000 feet to the top of a remote, abandoned radio tower, they find themselves
-          stranded with no way down. Now Becky and Hunter's expert climbing skills will be put to the ultimate test as
-          they desperately fight to survive the elements, a lack of supplies, and vertigo-inducing heights.</div>
+        <div class="meta-description">{{ item.overview }}</div>
       </div>
     </div>
   </div>
