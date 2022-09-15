@@ -1,22 +1,24 @@
 <div class="slider">
-  <div class="slide" *ngFor="let item of items">
-    <div class="slide-bg">
-      <img class="slide-bg-image" [src]="'https://image.tmdb.org/t/p/original/' + item.backdrop_path" alt="">
-    </div>
-    <div class="slide-info">
-      <h2 class="movie-name">{{ item.title }}</h2>
-      <div class="meta">
-        <div class="meta-data">
-          <span class="rating">
-            <span class="app-icon star-rating">star</span>
-            <span class="rating-value">{{ item.vote_average }}</span>
-            <span>/10</span>
-          </span>
-          <span>{{ item.vote_count}} Reviews</span>
-          <span>{{ item.release_date | date: 'yyyy' }}</span>
+  <ng-container *ngFor="let item of items; let i = index">
+    <div class="slide" *ngIf="i==currentSlideIndex" @slideFade>
+      <div class="slide-bg">
+        <img class="slide-bg-image" [src]="'https://image.tmdb.org/t/p/original/' + item.backdrop_path" alt="">
+      </div>
+      <div class="slide-info">
+        <h2 class="movie-name">{{ item.title }}</h2>
+        <div class="meta">
+          <div class="meta-data">
+            <span class="rating">
+              <span class="app-icon star-rating">star</span>
+              <span class="rating-value">{{ item.vote_average }}</span>
+              <span>/10</span>
+            </span>
+            <span>{{ item.vote_count}} Reviews</span>
+            <span>{{ item.release_date | date: 'yyyy' }}</span>
+          </div>
+          <div class="meta-description">{{ item.overview }}</div>
         </div>
-        <div class="meta-description">{{ item.overview }}</div>
       </div>
     </div>
-  </div>
+  </ng-container>
 </div>

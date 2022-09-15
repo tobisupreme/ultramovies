@@ -4,15 +4,15 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 35rem;
+  height: 45rem;
   color: #999999;
   background-color: #000000;
   position: relative;
 
   .slide {
-    position: relative;
+    position: absolute;
     display: flex;
-    height: 35rem;
+    height: 45rem;
 
     &-bg {
       position: relative;
